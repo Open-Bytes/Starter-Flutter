@@ -9,8 +9,11 @@ import '../cubit/app_cubit.dart';
 /*
   * Created by Ahmed Tawfik on 11/1/2022
 */
-mixin AppStatelessScreen<BLOC extends AppCubit>
-    on StatelessWidget, ResponsiveScreen, ScreenState {
+abstract class AppStatelessScreen<BLOC extends AppCubit> extends StatelessWidget
+    with ResponsiveScreen
+    implements ScreenState {
+  AppStatelessScreen({Key? key}) : super(key: key);
+
   late final BuildContext context;
   late final BLOC cubit;
 
@@ -33,7 +36,9 @@ mixin AppStatelessScreen<BLOC extends AppCubit>
 
   void _setup(BuildContext context) {
     this.context = context;
-    cubit = BlocProvider.of<BLOC>(context);
+    if (BLOC is AppCubit) { //Must check cause may Bloc is Null
+      cubit = BlocProvider.of<BLOC>(context);
+    }
     setContext(context);
   }
 
