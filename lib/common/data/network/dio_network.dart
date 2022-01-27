@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:starterflutter/common/core/app_config.dart';
 import 'interceptor.dart';
-
+/*
+  * Created by Ahmed Tawfik on 11/1/2022
+*/
 final appDio = AppDio().setup();
 
 class AppDio {
