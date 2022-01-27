@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starterflutter/common/core/state/resource_state.dart';
@@ -12,8 +11,8 @@ import '../cubit/app_cubit.dart';
 /*
   * Created by Ahmed Tawfik on 11/1/2022
 */
-abstract class AppScreen<T extends StatefulWidget, BLOC extends AppCubit>
-    extends State<T> with ResponsiveScreen implements ScreenState {
+abstract class AppStateful<S extends StatefulWidget, BLOC extends AppCubit>
+    extends State<S> with ResponsiveScreen implements ScreenState {
   late BLOC cubit;
 
   @override

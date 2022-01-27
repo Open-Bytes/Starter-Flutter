@@ -23,6 +23,8 @@ void main() {
 }
 
 class MainScreen extends AppStatelessScreen {
+  // const MainScreen({Key? key}) : super(key: key);
+
   @override
   onInitState() {
     // TODO: implement onInitState

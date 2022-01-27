@@ -12,7 +12,7 @@ import '../cubit/app_cubit.dart';
 abstract class AppStatelessScreen<BLOC extends AppCubit> extends StatelessWidget
     with ResponsiveScreen
     implements ScreenState {
-  AppStatelessScreen({Key? key}) : super(key: key);
+   AppStatelessScreen({Key? key}) : super(key: key);
 
   late final BuildContext context;
   late final BLOC cubit;
@@ -36,6 +36,7 @@ abstract class AppStatelessScreen<BLOC extends AppCubit> extends StatelessWidget
 
   void _setup(BuildContext context) {
     this.context = context;
+
     ///Must check cause may Bloc is Null
     if (BLOC is AppCubit) {
       cubit = BlocProvider.of<BLOC>(context);
