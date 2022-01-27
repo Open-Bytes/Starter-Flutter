@@ -10,7 +10,7 @@ import '../cubit/app_cubit.dart';
   * Created by Ahmed Tawfik on 11/1/2022
 */
 mixin AppStatelessScreen<BLOC extends AppCubit>
-    implements StatelessWidget, ResponsiveScreen, ScreenState {
+    on StatelessWidget, ResponsiveScreen, ScreenState {
   late final BuildContext context;
   late final BLOC cubit;
 

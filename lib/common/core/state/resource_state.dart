@@ -1,3 +1,6 @@
+/*
+  * Created by Ahmed Tawfik on 11/1/2022
+*/
 abstract class ResourceState {}
 
 class InitResource extends ResourceState {}
@@ -12,6 +15,8 @@ class ResultResource<T> extends ResourceState {
 
 class SuccessResource extends ResourceState {}
 
+class RefreshResource extends ResourceState {}
+
 class ErrorResource extends ResourceState {
   String? error = "";
   late Exception exception; //TODO:
@@ -20,4 +25,3 @@ class ErrorResource extends ResourceState {
     //TODO: show error
   }
 }
-

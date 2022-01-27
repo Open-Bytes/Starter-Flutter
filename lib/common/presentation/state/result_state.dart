@@ -1,6 +1,8 @@
+import 'package:starterflutter/common/core/state/resource_state.dart';
 
-import 'cubit_state.dart';
-
+/*
+  * Created by Ahmed Tawfik on 11/1/2022
+*/
 enum ResultState { success, error }
 
 ResultState resultState(int value) {

@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 
 import 'app_toast.dart';
-
+/*
+  * Created by Ahmed Tawfik on 11/1/2022
+*/
 class AppErrorHandler {
   AppErrorHandler() {
     _setup();
