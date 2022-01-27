@@ -39,15 +39,20 @@ abstract class AppScreen<T extends StatefulWidget, BLOC extends AppCubit>
   }
 
   _setup() {
-    cubit = BlocProvider.of<BLOC>(context);
+    ///Must check cause may Bloc is Null
+    if (BLOC is AppCubit) {
+      cubit = BlocProvider.of<BLOC>(context);
+    }
     setContext(context);
   }
 
   blocConsumer({required BlocWidgetBuilder<ResourceState> builder}) {
-    return BlocConsumer<BLOC, ResourceState>(listener: (context, state) {
-      _handleState(state);
-      onUpdateState(state);
-    }, builder: builder);
+    return BlocConsumer<BLOC, ResourceState>(
+        listener: (context, state) {
+          _handleState(state);
+          onUpdateState(state);
+        },
+        builder: builder);
   }
 
   void _handleState(ResourceState state) {

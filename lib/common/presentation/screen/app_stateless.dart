@@ -36,7 +36,8 @@ abstract class AppStatelessScreen<BLOC extends AppCubit> extends StatelessWidget
 
   void _setup(BuildContext context) {
     this.context = context;
-    if (BLOC is AppCubit) { //Must check cause may Bloc is Null
+    ///Must check cause may Bloc is Null
+    if (BLOC is AppCubit) {
       cubit = BlocProvider.of<BLOC>(context);
     }
     setContext(context);
