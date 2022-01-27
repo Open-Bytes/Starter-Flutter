@@ -22,6 +22,6 @@ class ErrorResource extends ResourceState {
   late Exception exception; //TODO:
 
   ErrorResource({this.error}) {
-    //TODO: show error
+    //TODO: u can handle some errors here
   }
 }
