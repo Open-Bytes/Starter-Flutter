@@ -13,6 +13,7 @@ import 'common/presentation/screen/app_stateless.dart';
 import 'common/presentation/screen/app_stateless.dart';
 
 void main() {
+
   App().setup();
 
   runZonedGuarded(() {
