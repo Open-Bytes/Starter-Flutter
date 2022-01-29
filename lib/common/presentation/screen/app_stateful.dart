@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starterflutter/common/core/state/resource_state.dart';
@@ -12,8 +11,8 @@ import '../cubit/app_cubit.dart';
 /*
   * Created by Ahmed Tawfik on 11/1/2022
 */
-abstract class AppScreen<T extends StatefulWidget, BLOC extends AppCubit>
-    extends State<T> with ResponsiveScreen implements ScreenState {
+abstract class AppStateful<S extends StatefulWidget, BLOC extends AppCubit>
+    extends State<S> with ResponsiveScreen implements ScreenState {
   late BLOC cubit;
 
   @override
@@ -39,15 +38,20 @@ abstract class AppScreen<T extends StatefulWidget, BLOC extends AppCubit>
   }
 
   _setup() {
-    cubit = BlocProvider.of<BLOC>(context);
+    ///Must check cause may Bloc is Null
+    if (BLOC is AppCubit) {
+      cubit = BlocProvider.of<BLOC>(context);
+    }
     setContext(context);
   }
 
   blocConsumer({required BlocWidgetBuilder<ResourceState> builder}) {
-    return BlocConsumer<BLOC, ResourceState>(listener: (context, state) {
-      _handleState(state);
-      onUpdateState(state);
-    }, builder: builder);
+    return BlocConsumer<BLOC, ResourceState>(
+        listener: (context, state) {
+          _handleState(state);
+          onUpdateState(state);
+        },
+        builder: builder);
   }
 
   void _handleState(ResourceState state) {

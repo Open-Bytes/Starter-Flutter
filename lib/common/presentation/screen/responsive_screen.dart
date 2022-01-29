@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
 mixin ResponsiveScreen {
-  late BuildContext _context;
+  late final BuildContext _context;
 
   setContext(BuildContext context) {
     _context = context;
   }
 
-  late var height = MediaQuery.of(_context).size.height;
-  late var width = MediaQuery.of(_context).size.width;
+  late final height = MediaQuery.of(_context).size.height;
+  late final width = MediaQuery.of(_context).size.width;
 }
